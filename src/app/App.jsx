@@ -6,7 +6,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/machine-coding" element={<Home />} />
+        <Route exact path="/machine-coding" element={<Home />} />
         <Route path="/machine-coding/pagination" element={<Pagination />} />
       </Routes>
     </BrowserRouter>
