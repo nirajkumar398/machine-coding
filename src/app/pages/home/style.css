@@ -1,0 +1,12 @@
+.page__container {
+  > h1 {
+    text-align: center;
+  }
+}
+.page__link {
+    margin-left: 25%;
+  > a {
+    display: block;
+    padding: 4px;
+  }
+}

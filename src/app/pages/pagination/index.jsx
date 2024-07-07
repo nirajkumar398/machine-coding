@@ -1,4 +1,4 @@
-// import "./App.css";
+// import "./style.css";
 // import { useEffect, useState } from "react";
 
 // const fetchInitialProducts = async (callback) => {
@@ -13,7 +13,7 @@
 //   }
 // };
 
-// function App() {
+// function Pagination() {
 //   const [productsData, setProductsData] = useState({});
 //   const [page, setPage] = useState(1);
 //   const { products = [], total, limit } = productsData || {};
@@ -73,9 +73,9 @@
 //   );
 // }
 
-// export default App;
+// export default Pagination;
 
-import "./App.css";
+import "./style.css";
 import { useEffect, useState } from "react";
 
 const LIMIT = 12;
@@ -93,7 +93,7 @@ const fetchInitialProducts = async (page, callback) => {
   }
 };
 
-function App() {
+function Pagination() {
   const [productsData, setProductsData] = useState({});
   const [page, setPage] = useState(1);
   const { products = [], total, limit } = productsData || {};
@@ -157,4 +157,4 @@ function App() {
   );
 }
 
-export default App;
+export default Pagination;
