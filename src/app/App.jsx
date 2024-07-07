@@ -7,7 +7,7 @@ const App = () => {
   return (
     <BrowserRouter basename="/machine-coding">
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<Pagination />} />
         <Route path="/pagination" element={<Pagination />} />
         <Route path="/infinite-scroll" component={InfiniteScroll} />
       </Routes>
