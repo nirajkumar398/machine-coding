@@ -1,4 +1,5 @@
 import "./style.css";
+
 const configLinks = [
   {
     title: "Pagination",
@@ -7,10 +8,11 @@ const configLinks = [
   },
   {
     id: 2,
-    title: "Infine Scrolling",
+    title: "Infinite Scrolling",
     url: "/machine-coding/infinite-scroll",
   },
 ];
+
 const Home = () => {
   return (
     <div className="page__container">
