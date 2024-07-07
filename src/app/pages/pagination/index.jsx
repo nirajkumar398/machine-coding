@@ -140,6 +140,7 @@ function Pagination() {
             <span
               onClick={() => onPageSelectHandler(index + 1)}
               className={page == index + 1 ? "pagination__seleced" : ""}
+              key={index}
             >
               {index + 1}
             </span>

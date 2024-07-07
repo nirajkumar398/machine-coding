@@ -4,10 +4,10 @@ import Home from "./pages/home";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/machine-coding">
       <Routes>
-        <Route path="/machine-coding" element={<Home />} />
-        <Route path="/machine-coding/pagination" element={<Pagination />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/pagination" element={<Pagination />} />
       </Routes>
     </BrowserRouter>
   );
