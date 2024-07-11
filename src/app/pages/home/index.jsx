@@ -29,7 +29,6 @@ const Home = () => {
             <li>{configLink.title}</li>
           </Link>
         ))}
-        <Link to={"/machine-coding/tic-tac-toe"}>open me</Link>
       </div>
     </div>
   );
