@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./style.css";
 
 const configLinks = [
@@ -24,10 +25,11 @@ const Home = () => {
       <h1>This is created for machine coding interview questions.</h1>
       <div className="page__link">
         {configLinks.map((configLink) => (
-          <a key={configLink.id} href={configLink.url}>
+          <Link key={configLink.id} to={configLink.url}>
             <li>{configLink.title}</li>
-          </a>
+          </Link>
         ))}
+        <Link to={"/machine-coding/tic-tac-toe"}>open me</Link>
       </div>
     </div>
   );
