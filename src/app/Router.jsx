@@ -6,12 +6,15 @@ import TicTacToe from "./pages/tic-tac-toe";
 
 const Router = () => {
   return (
-    <BrowserRouter basename="/machine-coding">
+    <BrowserRouter>
       <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/pagination" element={<Pagination />} />
-        <Route path="/infinite-scroll" element={<InfiniteScroll />} />
-        <Route path="/tic-tac-toe" element={<TicTacToe />} />
+        <Route path="/machine-coding" element={<Home />} />
+        <Route path="/machine-coding/pagination" element={<Pagination />} />
+        <Route
+          path="/machine-coding/infinite-scroll"
+          element={<InfiniteScroll />}
+        />
+        <Route path="/machine-coding/tic-tac-toe" element={<TicTacToe />} />
       </Routes>
     </BrowserRouter>
   );
