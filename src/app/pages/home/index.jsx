@@ -11,6 +11,11 @@ const configLinks = [
     title: "Infinite Scrolling",
     url: "/machine-coding/infinite-scroll",
   },
+  {
+    id: 3,
+    title: "Tic Tac Toe Game",
+    url: "/machine-coding/tic-tac-toe",
+  },
 ];
 
 const Home = () => {
