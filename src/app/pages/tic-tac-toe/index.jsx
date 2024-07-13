@@ -1,86 +1,120 @@
 import { useState } from "react";
 import "./style.css";
-const initialCells = Array(9).fill(null);
-const initialStatus = {
-  isWinner: false,
+
+const createInitialBoard = (size) => Array(size * size).fill(null);
+const initialGameStatus = {
+  hasWinner: false,
   isDraw: false,
   isGameOver: false,
-  player: "X",
+  currentPlayer: "X",
 };
-const checkForWinner = (newCells) => {
-  const winningCombinations = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-  ];
 
-  for (const winningCombination of winningCombinations) {
-    const [a, b, c] = winningCombination;
-    if (
-      newCells[a] &&
-      newCells[a] == newCells[b] &&
-      newCells[b] == newCells[c]
-    ) {
-      return true;
+const checkWinner = (player, board, cellIndex, size) => {
+  const isRowComplete = () => {
+    const row = Math.floor(cellIndex / size);
+    for (let col = 0; col < size; col++) {
+      if (board[row * size + col] !== player) return false;
     }
-  }
-  return false;
+    return true;
+  };
+
+  const isColComplete = () => {
+    const col = cellIndex % size;
+    for (let row = 0; row < size; row++) {
+      if (board[row * size + col] !== player) return false;
+    }
+    return true;
+  };
+
+  const isLeftDiagonalComplete = () => {
+    const row = Math.floor(cellIndex / size);
+    const col = cellIndex % size;
+
+    if (row !== col) return false;
+    for (let i = 0; i < size; i++) {
+      if (board[i * size + i] !== player) return false;
+    }
+    return true;
+  };
+
+  const isRightDiagonalComplete = () => {
+    const row = Math.floor(cellIndex / size);
+    const col = cellIndex % size;
+
+    if (row + col !== size - 1) return false;
+    for (let i = 0; i < size; i++) {
+      if (board[i * size + (size - 1 - i)] !== player) return false;
+    }
+    return true;
+  };
+
+  return (
+    isRowComplete() ||
+    isColComplete() ||
+    isLeftDiagonalComplete() ||
+    isRightDiagonalComplete()
+  );
 };
 
-const TicTacToe = () => {
-  const [cells, setCells] = useState(initialCells);
-  const [status, setStatus] = useState(initialStatus);
+const TicTacToe = ({ gridSize = 3 }) => {
+  const [board, setBoard] = useState(createInitialBoard(gridSize));
+  const [gameStatus, setGameStatus] = useState(initialGameStatus);
 
-  const onCellClickHandler = (id) => {
-    if (cells[id] || status.isGameOver) return;
-    const newCells = [...cells];
-    newCells[id] = status.player;
-    setCells(newCells);
+  const handleCellClick = (cellIndex) => {
+    if (board[cellIndex] || gameStatus.isGameOver) return;
 
-    if (checkForWinner(newCells)) {
-      setStatus((prevStatue) => ({
-        ...prevStatue,
-        isWinner: true,
+    const updatedBoard = [...board];
+    updatedBoard[cellIndex] = gameStatus.currentPlayer;
+    setBoard(updatedBoard);
+
+    if (
+      checkWinner(gameStatus.currentPlayer, updatedBoard, cellIndex, gridSize)
+    ) {
+      setGameStatus((prevState) => ({
+        ...prevState,
+        hasWinner: true,
         isGameOver: true,
       }));
-    } else if (!newCells.some((newCell) => !newCell)) {
-      setStatus((prevStatus) => ({
-        ...prevStatus,
+    } else if (!updatedBoard.includes(null)) {
+      setGameStatus((prevState) => ({
+        ...prevState,
         isDraw: true,
         isGameOver: true,
       }));
     } else {
-      setStatus((prevStatus) => ({
-        ...prevStatus,
-        player: prevStatus.player === "X" ? "O" : "X",
+      setGameStatus((prevState) => ({
+        ...prevState,
+        currentPlayer: prevState.currentPlayer === "X" ? "O" : "X",
       }));
     }
   };
-  const onStartClickHandler = () => {
-    setStatus(initialStatus);
-    setCells(initialCells);
+
+  const handleStartClick = () => {
+    setBoard(createInitialBoard(gridSize));
+    setGameStatus(initialGameStatus);
   };
+
   return (
     <div className="tictactoe__container">
-      <h1> This is Tic Tac Toe</h1>
-      <div className="grid__conatiner">
-        {cells.map((cell, index) => (
-          <span key={index} onClick={() => onCellClickHandler(index)}>
+      <h1>Tic Tac Toe</h1>
+      <div
+        className="grid__container"
+        style={{ gridTemplateColumns: `repeat(${gridSize}, 1fr)` }}
+      >
+        {board.map((cell, index) => (
+          <span key={index} onClick={() => handleCellClick(index)}>
             {cell}
           </span>
         ))}
       </div>
-      {status.isGameOver && (
+      {gameStatus.isGameOver && (
         <div className="grid__winner">
-          <span>{`${
-            status.isWinner ? `Winner is: ${status.player}` : "Game is Over!!"
-          }`}</span>
-          <button onClick={onStartClickHandler}>Start Again</button>
+          <span>
+            {gameStatus.hasWinner
+              ? `Winner is: ${gameStatus.currentPlayer}`
+              : "Game is Over!!"}
+          </span>
+          <button onClick={handleStartClick}>Start Again</button>
         </div>
       )}
     </div>

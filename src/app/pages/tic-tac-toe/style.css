@@ -4,11 +4,10 @@
   padding: 20px 0px;
   height: 90vh;
 }
-.grid__conatiner {
+.grid__container {
   padding: 20px;
   background-color: aqua;
   display: inline-grid;
-  grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
   > span {
     background-color: white;
