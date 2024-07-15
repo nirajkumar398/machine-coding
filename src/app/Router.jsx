@@ -3,18 +3,51 @@ import Pagination from "./pages/pagination";
 import InfiniteScroll from "./pages/infinite-scroll";
 import Home from "./pages/home";
 import TicTacToe from "./pages/tic-tac-toe";
+import NotoficationToast from "./pages/notificationToast";
+export const routeConfig = [
+  {
+    title: "Home Page",
+    id: 0,
+    url: "/",
+    component: Home,
+  },
+  {
+    title: "Pagination",
+    id: 1,
+    url: "/pagination",
+    component: Pagination,
+  },
+  {
+    id: 2,
+    title: "Infinite Scrolling",
+    url: "/infinite-scroll",
+    component: InfiniteScroll,
+  },
+  {
+    id: 3,
+    title: "Tic Tac Toe Game",
+    url: "/tic-tac-toe",
+    component: TicTacToe,
+  },
+  {
+    id: 4, 
+    title: "Notification Toast",
+    url: '/notification-toast',
+    component: NotoficationToast
+  }
+];
 
 const Router = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/machine-coding">
       <Routes>
-        <Route path="/machine-coding" element={<Home />} />
-        <Route path="/machine-coding/pagination" element={<Pagination />} />
-        <Route
-          path="/machine-coding/infinite-scroll"
-          element={<InfiniteScroll />}
-        />
-        <Route path="/machine-coding/tic-tac-toe" element={<TicTacToe />} />
+        {routeConfig.map((route) => (
+          <Route
+            path={route.url}
+            element={<route.component />}
+            key={route.id}
+          />
+        ))}
       </Routes>
     </BrowserRouter>
   );
