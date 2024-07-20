@@ -4,6 +4,8 @@ import InfiniteScroll from "./pages/infinite-scroll";
 import Home from "./pages/home";
 import TicTacToe from "./pages/tic-tac-toe";
 import NotoficationToast from "./pages/notificationToast";
+import AutoSuggestion from "./pages/auto-suggestion/index2";
+
 export const routeConfig = [
   {
     title: "Home Page",
@@ -30,10 +32,16 @@ export const routeConfig = [
     component: TicTacToe,
   },
   {
-    id: 4, 
+    id: 4,
     title: "Notification Toast",
-    url: '/notification-toast',
-    component: NotoficationToast
+    url: "/notification-toast",
+    component: NotoficationToast,
+  },
+  {
+    id: 5,
+    title: "Auto Suggestion",
+    url: "/auto-suggestion",
+    component: AutoSuggestion,
   }
 ];
 
