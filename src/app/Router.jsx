@@ -5,6 +5,7 @@ import Home from "./pages/home";
 import TicTacToe from "./pages/tic-tac-toe";
 import NotoficationToast from "./pages/notificationToast";
 import AutoSuggestion from "./pages/auto-suggestion/index2";
+import NestedComments from "./pages/nested-comments2";
 
 export const routeConfig = [
   {
@@ -42,7 +43,13 @@ export const routeConfig = [
     title: "Auto Suggestion",
     url: "/auto-suggestion",
     component: AutoSuggestion,
-  }
+  },
+  {
+    id: 5,
+    title: "Nested Comments",
+    url: "/nested-comments",
+    component: NestedComments,
+  },
 ];
 
 const Router = () => {

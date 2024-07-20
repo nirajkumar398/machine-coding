@@ -1,0 +1,55 @@
+.nested-container {
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.nested-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.add-comment-button {
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid blue;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.text-input {
+  width: 100%;
+  border: 1px solid rgb(52, 52, 133);
+  box-sizing: border-box;
+  padding: 10px;
+  outline: none;
+  border-radius: 5px;
+}
+
+.comment-item {
+  background-color: rgb(208, 252, 252);
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid rgb(200, 200, 238);
+  border-radius: 5px;
+  > span {
+    display: block;
+    margin-bottom: 8px;
+  }
+}
+.comment-button {
+  display: flex;
+  gap: 10px;
+  > button {
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid blue;
+    padding: 6px 10px;
+    cursor: pointer;
+  }
+}
+.comment-list {
+  margin: 10px 0px;
+}
