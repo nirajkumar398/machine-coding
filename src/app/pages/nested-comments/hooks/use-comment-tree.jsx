@@ -59,7 +59,7 @@ const useCommentTree = (initialData) => {
   const deleteNode = (tree, commentId) => {
     return tree
       .map((comment) => {
-        if (comment.id == commentId) {
+        if (comment.id === commentId) {
           return null;
         } else if (comment.replies.length > 0) {
           return {
@@ -70,7 +70,7 @@ const useCommentTree = (initialData) => {
           return comment;
         }
       })
-      .filter((comment) => !comment);
+      .filter((comment) => comment);
   };
   const updateComment = (commentId, content) => {
     setComments((prevComments) => updateNode(prevComments, commentId, content));
