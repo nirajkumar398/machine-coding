@@ -1,69 +1,53 @@
-import React from 'react';
-import './components/style.css';
-import NestedComments from './components/NestedComments';
+import React, { useState } from "react";
+import "./style.css";
+import data from "./data/comments.json";
+import Comment from "./components/Comment";
+import useCommentTree from "./hooks/use-comment-tree";
 
-const data = [
-  {
-    id: 1,
-    content: "This is the first comment",
-    votes: 5,
-    timestamp: "2024-06-16T10:00:00Z",
-    replies: [
-      {
-        id: 2,
-        content: "This is a reply to the first comment",
-        votes: 3,
-        timestamp: "2024-06-16T11:00:00Z",
-        replies: []
-      },
-      {
-        id: 3,
-        content: "This is another reply to the first comment",
-        votes: 8,
-        timestamp: "2024-06-16T12:00:00Z",
-        replies: []
-      }
-    ]
-  },
-  {
-    id: 4,
-    content: "This is the second comment",
-    votes: 10,
-    timestamp: "2024-06-16T09:00:00Z",
-    replies: [
-      {
-        id: 5,
-        content: "This is a reply to the second comment",
-        votes: 4,
-        timestamp: "2024-06-16T09:30:00Z",
-        replies: [
-          {
-            id: 6,
-            content: "This is a nested reply to the reply",
-            votes: 2,
-            timestamp: "2024-06-16T09:45:00Z",
-            replies: []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: 7,
-    content: "This is the third comment",
-    votes: 1,
-    timestamp: "2024-06-16T08:00:00Z",
-    replies: []
-  }
-];
+const NestedComments = () => {
+  const { insertComment, comments, updateComment, deleteComment } = useCommentTree(data);
+  const [inputValue, setInputValue] = useState("");
+  const addCommentHandler = (contentId, content) => {
+    insertComment(contentId, content);
+    setInputValue("");
+  };
 
-function App() {
+  const handleReply = (commentId, content) => {
+    console.log("nirah is : ", content);
+    insertComment(commentId, content);
+  };
+
+  const handleEdit = (commentId, content) => {
+    updateComment(commentId, content);
+  };
+  const handleDelete = (commentId) => {
+    deleteComment(commentId);
+  };
   return (
-    <div className="App">
+    <div className="nested-container">
       <h1>Nested Comments</h1>
-      <NestedComments data={data} />
+      <div className="nested-comment">
+        <textarea
+          rows={3}
+          placeholder="Add a new comment..."
+          onChange={(e) => setInputValue(e.target.value)}
+          value={inputValue}
+        />
+        <button onClick={() => addCommentHandler(null, inputValue)}>
+          Add Comment
+        </button>
+      </div>
+      {comments.map((comment) => (
+        <Comment
+          key={comment.id}
+          comment={comment}
+          onSubmitComment={handleReply}
+          onEditComment={handleEdit}
+          onDeleteComment={handleDelete}
+        />
+      ))}
     </div>
   );
-}
+};
 
-export default App;
+export default NestedComments;

@@ -5,7 +5,7 @@ import Home from "./pages/home";
 import TicTacToe from "./pages/tic-tac-toe";
 import NotoficationToast from "./pages/notificationToast";
 import AutoSuggestion from "./pages/auto-suggestion/index2";
-import NestedComments from "./pages/nested-comments2";
+import NestedComments from "./pages/nested-comments";
 
 export const routeConfig = [
   {
