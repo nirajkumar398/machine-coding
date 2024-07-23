@@ -19,25 +19,6 @@ const useCommentTree = (initialData) => {
       }
     });
   };
-
-  const insertComment = (commentId, content) => {
-    console.log("content: is", content);
-    const newComment = {
-      id: Date.now(),
-      content: content,
-      votes: 0,
-      timestamp: new Date().toISOString(),
-      replies: [],
-    };
-    if (commentId) {
-      setComments((prevComments) =>
-        insertNode(prevComments, commentId, newComment)
-      );
-    } else {
-      setComments((prevComments) => [...prevComments, newComment]);
-    }
-  };
-
   const updateNode = (tree, commentId, content) => {
     return tree.map((comment) => {
       if (comment.id === commentId) {
@@ -71,6 +52,22 @@ const useCommentTree = (initialData) => {
         }
       })
       .filter((comment) => comment);
+  };
+  const insertComment = (commentId, content) => {
+    const newComment = {
+      id: Date.now(),
+      content: content,
+      votes: 0,
+      timestamp: new Date().toISOString(),
+      replies: [],
+    };
+    if (commentId) {
+      setComments((prevComments) =>
+        insertNode(prevComments, commentId, newComment)
+      );
+    } else {
+      setComments((prevComments) => [...prevComments, newComment]);
+    }
   };
   const updateComment = (commentId, content) => {
     setComments((prevComments) => updateNode(prevComments, commentId, content));
