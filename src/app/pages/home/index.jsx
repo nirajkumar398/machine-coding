@@ -7,13 +7,14 @@ const Home = () => {
     <div className="page__container">
       <h1>This is created for machine coding interview questions.</h1>
       <ul className="page__link">
-        {routeConfig.map((route) => (
-          <li key={route.id}>
+        {routeConfig
+          .filter((e) => e.id !== 0)
+          .map((route, index) => (
             <Link key={route.id} to={route.url}>
-              {route.title}
+              <span className="page__link__item index">{`${index + 1}. `}</span>
+              <span className="page__link__item">{route.title}</span>
             </Link>
-          </li>
-        ))}
+          ))}
       </ul>
     </div>
   );

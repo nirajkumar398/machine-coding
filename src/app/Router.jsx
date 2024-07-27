@@ -6,7 +6,7 @@ import TicTacToe from "./pages/tic-tac-toe";
 import NotoficationToast from "./pages/notificationToast";
 import AutoSuggestion from "./pages/auto-suggestion/index2";
 import NestedComments from "./pages/nested-comments";
-
+import EmployeeDataBase from "./pages/emplyeeDatabase";
 export const routeConfig = [
   {
     title: "Home Page",
@@ -49,6 +49,12 @@ export const routeConfig = [
     title: "Nested Comments",
     url: "/nested-comments",
     component: NestedComments,
+  },
+  {
+    id: 6,
+    title: "Employee Database Management System",
+    url: "/employee-database",
+    component: EmployeeDataBase,
   },
 ];
 

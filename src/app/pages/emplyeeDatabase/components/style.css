@@ -1,0 +1,33 @@
+.input-wrap {
+  text-align: center;
+}
+textarea,
+input {
+  display: block;
+  border: 1px solid blue;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+}
+.add-employee-button {
+  position: absolute;
+  right: 30px;
+  top: 40px;
+  padding: 10px;
+  background: blue;
+  border: 1px solid blue;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+.details-submit-button {
+  padding: 10px;
+  background: blue;
+  border: 1px solid blue;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
