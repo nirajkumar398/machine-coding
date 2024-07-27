@@ -7,6 +7,7 @@ import NotoficationToast from "./pages/notificationToast";
 import AutoSuggestion from "./pages/auto-suggestion/index2";
 import NestedComments from "./pages/nested-comments";
 import EmployeeDataBase from "./pages/emplyeeDatabase";
+import CountdownTimer from "./pages/countdownTimer";
 export const routeConfig = [
   {
     title: "Home Page",
@@ -55,6 +56,12 @@ export const routeConfig = [
     title: "Employee Database Management System",
     url: "/employee-database",
     component: EmployeeDataBase,
+  },
+  {
+    id: 6,
+    title: "Countdown Timer",
+    url: "/count-down-timer",
+    component: CountdownTimer,
   },
 ];
 
