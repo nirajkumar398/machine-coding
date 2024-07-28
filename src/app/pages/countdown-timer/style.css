@@ -1,0 +1,65 @@
+.countdown-container {
+  background: azure;
+  padding: 40px;
+  border: 1px solid red;
+  border-radius: 20px;
+  max-width: 440px;
+}
+.countdown-container-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+.countdown-timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.countdown-timer input {
+  width: 60px;
+  height: 55px;
+  outline: none;
+  border: 1px solid gray;
+  padding: 4px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 2em;
+}
+.countdown-button {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.countdown-button-start {
+  border: none;
+  padding: 12px 20px;
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+  background-color: rgb(33, 233, 33);
+  cursor: pointer;
+}
+.countdown-button-reset {
+  border: none;
+  padding: 12px 20px;
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+  background-color: rgb(206, 72, 23);
+  cursor: pointer;
+}
+
+.countdown-timer input::-webkit-outer-spin-button,
+.countdown-timer input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.timer-display h1 {
+  font-size: 3em;
+  margin: 0;
+}

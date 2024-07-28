@@ -7,7 +7,7 @@ import NotoficationToast from "./pages/notificationToast";
 import AutoSuggestion from "./pages/auto-suggestion/index2";
 import NestedComments from "./pages/nested-comments";
 import EmployeeDataBase from "./pages/emplyeeDatabase";
-import CountdownTimer from "./pages/countdownTimer";
+import CountdownTimer from "./pages/countdown-timer";
 export const routeConfig = [
   {
     title: "Home Page",
