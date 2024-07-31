@@ -8,6 +8,7 @@ import AutoSuggestion from "./pages/auto-suggestion/index2";
 import NestedComments from "./pages/nested-comments";
 import EmployeeDataBase from "./pages/emplyeeDatabase";
 import CountdownTimer from "./pages/countdown-timer";
+import EMICalculator from "./pages/emi-calculator";
 export const routeConfig = [
   {
     title: "Home Page",
@@ -46,22 +47,28 @@ export const routeConfig = [
     component: AutoSuggestion,
   },
   {
-    id: 5,
+    id: 6,
     title: "Nested Comments",
     url: "/nested-comments",
     component: NestedComments,
   },
   {
-    id: 6,
+    id: 7,
     title: "Employee Database Management System",
     url: "/employee-database",
     component: EmployeeDataBase,
   },
   {
-    id: 6,
+    id: 8,
     title: "Countdown Timer",
     url: "/count-down-timer",
     component: CountdownTimer,
+  },
+  {
+    id: 9,
+    title: "EMI Calculator",
+    url: "/emi-calculator",
+    component: EMICalculator,
   },
 ];
 
