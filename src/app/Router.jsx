@@ -9,6 +9,7 @@ import NestedComments from "./pages/nested-comments";
 import EmployeeDataBase from "./pages/emplyeeDatabase";
 import CountdownTimer from "./pages/countdown-timer";
 import EMICalculator from "./pages/emi-calculator";
+import Calculator from "./pages/calculator";
 export const routeConfig = [
   {
     title: "Home Page",
@@ -69,6 +70,12 @@ export const routeConfig = [
     title: "EMI Calculator",
     url: "/emi-calculator",
     component: EMICalculator,
+  },
+  {
+    id: 1,
+    title: "Calculator",
+    url: "/calculator",
+    component: Calculator,
   },
 ];
 
