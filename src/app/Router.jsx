@@ -14,6 +14,8 @@ import ToDoList from './pages/todo-list'
 // import UseState from "./pages/all-hooks/UseState";
 import Virtualization from "./pages/virtulalization";
 import Trello from "./pages/trello";
+import Whiteboard from "./pages/white-board";
+
 export const routeConfig = [
   {
     title: "Home Page",
@@ -104,6 +106,12 @@ export const routeConfig = [
     title: "Trello Board",
     url: "/trello",
     component: Trello,
+  },
+  {
+    id: 15,
+    title: "White Board",
+    url: "/white-board",
+    component: Whiteboard,
   },
 ];
 
