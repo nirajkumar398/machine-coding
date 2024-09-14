@@ -1,0 +1,17 @@
+.virtualization-container {
+  margin: 0 auto;
+  max-width: 400px;
+  text-align: center;
+}
+.virtualization-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(190, 186, 186);
+  margin-top: 20px;
+}
+.virtualization-item {
+  padding: 10px;
+  font-size: 2rem;
+  margin-bottom: 4px;
+}

@@ -10,6 +10,10 @@ import EmployeeDataBase from "./pages/emplyeeDatabase";
 import CountdownTimer from "./pages/countdown-timer";
 import EMICalculator from "./pages/emi-calculator";
 import Calculator from "./pages/calculator";
+import ToDoList from './pages/todo-list'
+// import UseState from "./pages/all-hooks/UseState";
+import Virtualization from "./pages/virtulalization";
+import Trello from "./pages/trello";
 export const routeConfig = [
   {
     title: "Home Page",
@@ -72,12 +76,37 @@ export const routeConfig = [
     component: EMICalculator,
   },
   {
-    id: 1,
+    id: 10,
     title: "Calculator",
     url: "/calculator",
     component: Calculator,
   },
+  {
+    id: 11,
+    title: "Todo - List",
+    url: "/todo-list",
+    component: ToDoList,
+  },
+  // {
+  //   id: 12,
+  //   title: "All Hooks",
+  //   url: "/all-hooks",
+  //   component: UseState,
+  // },
+  {
+    id: 13,
+    title: "Virtualization",
+    url: "/virtualization",
+    component: Virtualization,
+  },
+  {
+    id: 14,
+    title: "Trello Board",
+    url: "/trello",
+    component: Trello,
+  },
 ];
+
 
 const Router = () => {
   return (
